@@ -1,0 +1,38 @@
+{
+  "name": "lifx-aws-iot-button",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "test": "tape test/*.js",
+    "lint": "eslint bin index.js utils.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "eslint": "^4.13.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^5.0.0",
+    "minimist": "^1.2.0",
+    "prettier": "^1.9.2",
+    "tape": "^4.8.0"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint",
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "request": "^2.83.0"
+  },
+  "bin": {
+    "lifx-set": "./bin/lifx-set.js",
+    "lifx-get": "./bin/lifx-get.js",
+    "lifx-toggle": "./bin/lifx-toggle.js",
+    "lifx": "./bin/lifx.js"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "SINGLE": {
+    "set": {
+      "power": "on",
+      "brightness": 0.3
+    }
+  },
+  "DOUBLE": {
+    "set": {
+      "power": "on",
+      "brightness": 0.5
+    }
+  },
+  "LONG": {
+    "set": {
+      "power": "on"
+    }
+  }
+}
