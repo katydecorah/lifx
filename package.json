@@ -16,7 +16,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^5.0.0",
     "minimist": "^1.2.0",
-    "prettier": "^1.12.1",
+    "prettier": "^1.13.7",
     "tape": "^4.9.0"
   },
   "lint-staged": {
