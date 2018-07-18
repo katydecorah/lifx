@@ -14,7 +14,7 @@
     "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",
     "husky": "^0.14.3",
-    "lint-staged": "^5.0.0",
+    "lint-staged": "^7.2.0",
     "minimist": "^1.2.0",
     "prettier": "^1.12.1",
     "tape": "^4.9.0"
