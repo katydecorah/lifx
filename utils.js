@@ -1,6 +1,6 @@
 const request = require('request');
 
-const toggle = () => {
+module.exports.toggle = () => {
   const opts = {
     url: `https://api.lifx.com/v1/lights/${process.env.LifxBulb}/toggle`,
     headers: {
@@ -17,7 +17,7 @@ const toggle = () => {
   });
 };
 
-const getState = () => {
+module.exports.getState = () => {
   const opts = {
     url: `https://api.lifx.com/v1/lights/${process.env.LifxBulb}`,
     headers: {
@@ -34,7 +34,7 @@ const getState = () => {
   });
 };
 
-const setState = (bulb, params) => {
+module.exports.setState = (bulb, params) => {
   const opts = {
     url: `https://api.lifx.com/v1/lights/${bulb}/state`,
     form: params,
@@ -51,14 +51,11 @@ const setState = (bulb, params) => {
   });
 };
 
-const parseEvent = event => {
-  return (
-    process.env.LifxClickType ||
-    JSON.parse(event.Records[0].Sns.Message).clickType
-  );
-};
+module.exports.parseEvent = event =>
+  process.env.LifxClickType ||
+  JSON.parse(event.Records[0].Sns.Message).clickType;
 
-const getClickResponse = click => {
+module.exports.getClickResponse = click => {
   const responses = require('./iot-settings.json');
   const bulbs = {
     SINGLE: process.env.LifxSingleBulb,
@@ -68,12 +65,4 @@ const getClickResponse = click => {
   let response = responses[click];
   response.bulb = bulbs[click];
   return response;
-};
-
-module.exports = {
-  toggle,
-  getState,
-  setState,
-  parseEvent,
-  getClickResponse
 };
