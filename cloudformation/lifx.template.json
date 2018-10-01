@@ -122,10 +122,7 @@
           }
         },
         "Role": {
-          "Fn::GetAtt": [
-            "LifxRole",
-            "Arn"
-          ]
+          "Fn::GetAtt": ["LifxRole", "Arn"]
         },
         "Description": "Turns on/off light in response to SNS messages",
         "Handler": "index.handler",
@@ -164,17 +161,12 @@
       "Type": "AWS::IoT::Thing",
       "Properties": {
         "ThingName": {
-          "Fn::Join" : [ "",
-            [
-              "iotbutton_",
-              { "Ref": "IoTButtonDSN" }
-            ]
-          ]
+          "Fn::Join": ["", ["iotbutton_", { "Ref": "IoTButtonDSN" }]]
         }
       }
     },
     "IoTPolicy": {
-      "Type" : "AWS::IoT::Policy",
+      "Type": "AWS::IoT::Policy",
       "Properties": {
         "PolicyDocument": {
           "Version": "2012-10-17",
@@ -183,7 +175,8 @@
               "Action": "iot:Publish",
               "Effect": "Allow",
               "Resource": {
-                "Fn::Join": [ "",
+                "Fn::Join": [
+                  "",
                   [
                     "arn:aws:iot:",
                     { "Ref": "AWS::Region" },
@@ -211,7 +204,7 @@
       }
     },
     "IoTThingPrincipalAttachment": {
-      "Type" : "AWS::IoT::ThingPrincipalAttachment",
+      "Type": "AWS::IoT::ThingPrincipalAttachment",
       "Properties": {
         "Principal": {
           "Ref": "CertificateARN"
@@ -234,10 +227,7 @@
           },
           {
             "Endpoint": {
-              "Fn::GetAtt": [
-                "LifxFunction",
-                "Arn"
-              ]
+              "Fn::GetAtt": ["LifxFunction", "Arn"]
             },
             "Protocol": "lambda"
           }
@@ -272,7 +262,8 @@
                   "Effect": "Allow",
                   "Action": "sns:Publish",
                   "Resource": {
-                    "Fn::Join": [ "",
+                    "Fn::Join": [
+                      "",
                       [
                         "arn:aws:sns:",
                         { "Ref": "AWS::Region" },
@@ -297,19 +288,14 @@
       "Type": "AWS::IoT::TopicRule",
       "Properties": {
         "RuleName": {
-          "Fn::Join": [ "",
-            [
-              "iotbutton_",
-              { "Ref": "IoTButtonDSN" }
-            ]
-          ]
+          "Fn::Join": ["", ["iotbutton_", { "Ref": "IoTButtonDSN" }]]
         },
         "TopicRulePayload": {
           "Actions": [
             {
               "Sns": {
                 "RoleArn": {
-                  "Fn::GetAtt": [ "SNSTopicRole", "Arn" ]
+                  "Fn::GetAtt": ["SNSTopicRole", "Arn"]
                 },
                 "TargetArn": {
                   "Ref": "SNSTopic"
@@ -320,12 +306,9 @@
           "AwsIotSqlVersion": "2015-10-08",
           "RuleDisabled": false,
           "Sql": {
-            "Fn::Join": [ "",
-              [
-                "SELECT * FROM 'iotbutton/",
-                { "Ref": "IoTButtonDSN" },
-                "'"
-              ]
+            "Fn::Join": [
+              "",
+              ["SELECT * FROM 'iotbutton/", { "Ref": "IoTButtonDSN" }, "'"]
             ]
           }
         }
