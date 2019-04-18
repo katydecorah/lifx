@@ -127,7 +127,7 @@
         "Description": "Turns on/off light in response to SNS messages",
         "Handler": "index.handler",
         "MemorySize": 128,
-        "Runtime": "nodejs6.10",
+        "Runtime": "nodejs8.10",
         "Timeout": 120
       }
     },
