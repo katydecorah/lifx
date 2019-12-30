@@ -1,14 +1,14 @@
 {
   "name": "lifx-aws-iot-button",
   "version": "1.0.0",
-  "description": "",
+  "description": "LIFX + AWS IoT Button [![Build Status](https://travis-ci.com/katydecorah/lifx.svg?token=TZtB5nKVkXgMi2Yv8Ay6&branch=master)](https://travis-ci.com/katydecorah/lifx) ---------------------",
   "main": "index.js",
   "scripts": {
     "precommit": "lint-staged",
     "test": "tape test/*.js",
     "lint": "eslint bin index.js utils.js"
   },
-  "author": "",
+  "author": "Katy DeCorah",
   "license": "ISC",
   "devDependencies": {
     "babel-eslint": "^8.2.6",
@@ -16,8 +16,8 @@
     "husky": "^0.14.3",
     "lint-staged": "^5.0.0",
     "minimist": "^1.2.0",
-    "prettier": "^1.17.0",
-    "tape": "^4.10.1"
+    "prettier": "^1.19.1",
+    "tape": "^4.12.1"
   },
   "lint-staged": {
     "**/*.js": [
@@ -42,5 +42,16 @@
     "lifx-get": "./bin/lifx-get.js",
     "lifx-toggle": "./bin/lifx-toggle.js",
     "lifx": "./bin/lifx.js"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katydecorah/lifx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/katydecorah/lifx/issues"
+  },
+  "homepage": "https://github.com/katydecorah/lifx#readme"
 }
